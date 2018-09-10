@@ -16,6 +16,11 @@ namespace CognitiveServices.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Home()
+        {
+            return View();
+        }
+        [OutputCache(Duration = 35, VaryByParam = "none")] // Cache Response set to last for 30 seconds  
         public ActionResult Index(string id)
         {
             // Pass a list of blob URIs and captions in ViewBag
@@ -35,12 +40,19 @@ namespace CognitiveServices.Controllers
                     if (String.IsNullOrEmpty(id) || HasMatchingMetadata(blob, id))
                     {
                         var caption = blob.Metadata.ContainsKey("Caption") ? blob.Metadata["Caption"] : blob.Name;
+                        var category= blob.Metadata.ContainsKey("Category") ? blob.Metadata["Category"] : blob.Name;
+                        var imagetype= blob.Metadata.ContainsKey("ImageType") ? blob.Metadata["ImageType"] : blob.Name;
+                        var color= blob.Metadata.ContainsKey("Color") ? blob.Metadata["Color"] : blob.Name;
 
+                        
                         blobs.Add(new StorageBlobs()
                         {
                             ImageUri = blob.Uri.ToString(),
                             ThumbnailUri = blob.Uri.ToString().Replace("/photos/", "/thumbnails/"),
-                            Caption = caption
+                            Caption = caption,
+                            ImageType = imagetype,
+                            Color=color,
+                            Category=category
                         });
                     }
                 }
@@ -121,6 +133,7 @@ namespace CognitiveServices.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+
 
             public ActionResult About()
         {

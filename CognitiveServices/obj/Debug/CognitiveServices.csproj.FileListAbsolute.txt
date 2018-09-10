@@ -95,9 +95,9 @@ C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\bin\Microsoft.AI.Depe
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\bin\Microsoft.AI.Web.xml
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.csprojAssemblyReference.cache
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.csproj.CoreCompileInputs.cache
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.csproj.CopyComplete
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.dll
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.pdb
 C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\bin\Microsoft.ProjectOxford.Vision.dll
+C:\Users\nhlak\Desktop\CognitiveServices\CognitiveServices\obj\Debug\CognitiveServices.csprojAssemblyReference.cache

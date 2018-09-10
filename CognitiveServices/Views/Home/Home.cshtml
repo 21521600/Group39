@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>INNOVATORS PHOTO BOOTH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Crop Pic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/Content/web/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Content/web/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Content/web/css/font-awesome.css" rel="stylesheet"> <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Content/web/css/owl.carousel.css" type="text/css" media="all" />
+
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="~/Content/web/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+
+    <!-- //web-fonts -->
+</head>
+<body>
+    <!-- banner -->
+    <!-- Header -->
+    <div class="logo-w3layouts">
+        <h1><a href="@Url.Action("Home", "Home")"><i class="fa fa-pie-chart" aria-hidden="true"></i>INNOVATORS PHOTO BOOTH</a></h1>
+    </div>
+
+    <!-- Navigation -->
+    <div class="menu">
+        <a href="#" class="navicon"></a>
+        <div class="toggle">
+            <ul class="toggle-menu">
+                <li><a href="@Url.Action("Index", "Home")" class="active"> CONTINUE TO SITE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- //Navigation -->
+    <!-- banner-slider -->
+    <div class="w3l_banner_info">
+        <div class="slider">
+            <div class="callbacks_container">
+
+                <ul class="rslides" id="slider3">
+                    <li>
+                        <div class="slider-img">
+                            <img src="~/Content/web/images/b1.jpg" class="img-responsive" alt="impetus">
+                        </div>
+                        <div class="slider_banner_info">
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="slider-img">
+                            <img src="~/Content/web/images/b5.jpg" class="img-responsive" alt="impetus">
+                        </div>
+                        <div class="slider_banner_info">
+
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="slider-img">
+                            <img src="~/Content/web/images/b6.jpg" class="img-responsive" alt="impetus">
+                        </div>
+                        <div class="slider_banner_info">
+
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- //banner-slider -->
+    <!-- //Header -->
+    <!--//banner-->
+ 
+
+    <!-- menu-js -->
+    <script>
+		$('.navicon').on('click', function (e) {
+		  e.preventDefault();
+		  $(this).toggleClass('navicon--active');
+		  $('.toggle').toggleClass('toggle--active');
+		});
+    </script>
+    <!-- //menu-js -->
+    <!--banner Slider starts Here-->
+    <script src="~/Content/web/js/responsiveslides.min.js"></script>
+    <script>
+								// You can also use "$(window).load(function() {"
+								$(function () {
+								  // Slideshow 4
+								  $("#slider3").responsiveSlides({
+									auto: true,
+									pager:true,
+									nav:false,
+									speed: 500,
+									namespace: "callbacks",
+									before: function () {
+									  $('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+									  $('.events').append("<li>after event fired.</li>");
+									}
+								  });
+
+								});
+    </script>
+
+    <!--banner Slider starts Here-->
+    <!-- Owl-Carousel-JavaScript -->
+    <script src="~/Content/web/js/owl.carousel.js"></script>
+    <script>
+		$(document).ready(function () {
+			$("#owl-demo").owlCarousel({
+				items: 2,
+				lazyLoad: true,
+				autoPlay: false,
+				pagination: true,
+			});
+		});
+    </script>
+    <!-- //Owl-Carousel-JavaScript -->
+
+    <script src="~/Content/web/js/SmoothScroll.min.js"></script>
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/Content/web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/web/js/easing.js"></script>
+    <script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+			};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+		});
+    </script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Content/web/js/bootstrap.js"></script>
+</body>
+</html>
+

@@ -1,53 +1,195 @@
 ﻿@{
     ViewBag.Title = "CognitiveServices Home Page";
 }
-
 @using CognitiveServices.Models
-
-<div class="container" style="padding-top: 24px">
-    <div class="row">
-        <div class="col-sm-8">
-            @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <input type="file" name="file" id="upload" style="display: none" onchange="$('#submit').click();" />
-                <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
-                <input type="submit" id="submit" style="display: none" />
-            }
-        </div>
-        <div class="col-sm-4 pull-right">
-        </div>
-        @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
-        {
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </span>
-            </div>
-        }
-    </div>
-
-    <hr />
-
-    <div class="row">
-        <div class="col-sm-12">
-            @foreach (StorageBlobs blob in ViewBag.Blobs)
-            {
-                <a href="@blob.ImageUri" rel="lightbox" title="@blob.Caption">
-                    <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
-                </a>
-            }
-        </div>
-    </div>
-</div>
-
-@section scripts
-{
-    <script type="text/javascript" language="javascript">
-        if ("@TempData["Message"]" !== "") {
-            alert("@TempData["Message"]");
-        }
-    </script>
+@{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>INNOVATORS PHOTO BOOTH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Crop Pic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <!-- Custom Theme files -->
+    <link href="~/Content/web/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Content/web/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Content/web/css/font-awesome.css" rel="stylesheet"> <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Content/web/css/owl.carousel.css" type="text/css" media="all" />
+    <!--gallery pop-up-css file -->
+    <link rel="stylesheet" href="~/Content/web/css/chocolat.css" type="text/css">
+    <link href="~/Content/web/css/style.css" rel="stylesheet" />
+    <!-- // gallery pop-up-css file -->
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="~/Content/web/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700" rel="stylesheet">
+
+    <!-- //web-fonts -->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner jarallax">
+        <div class="banner-agileinfo">
+            <!-- Header -->
+            <div class="logo-w3layouts">
+                <h1><a href="@Url.Action("Home", "Home")"><i class="fa fa-pie-chart" aria-hidden="true"></i>INNOVATORS PHOTO BOOTH</a></h1>
+            </div>
+
+            <!-- Navigation -->
+            <div class="menu">
+                <a href="#" class="navicon"></a>
+                <div class="toggle">
+                    <ul class="toggle-menu">
+                        <li><a href="index.html" class="active"> Home</a></li>
+                        <li><a href="#about" class="scroll"> About</a></li>
+                        <li><a href="services.html"> Services</a></li>
+                        <li><a href="icons.html">Web Icons</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                        <li><a href="portfolio.html"> Portfolio</a></li>
+                        <li><a href="mail.html"> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- //Navigation -->
+        </div>
+    </div>
+    <!-- gallery -->
+    <div class="portfolio" id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input type="file" name="file" id="upload" style="display: none" onchange="$('#submit').click();" />
+                        <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
+                        <input type="submit" id="submit" style="display: none" />
+                    }
+                </div>
+                <div class="col-sm-4 pull-right">
+                </div>
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
+                {
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                }
+            </div>
+            <!-- Owl-Carousel -->
+            <div class="wthree_head_all">
+            </div>
+            <div class="portfolio-agile">
+                <div class="main">
+                    @foreach (StorageBlobs blob in ViewBag.Blobs)
+                    {
+                        <div class="view view-seventh">
+
+                            <a href="@blob.ImageUri" class="b-link-stripe b-animate-go  thickbox" title="@blob.Caption">
+                                <img src="@blob.ThumbnailUri" title="@blob.Caption" width="296" height="219" alt="" />
+                                @*<div class="mask">
+                                    <h5>@blob.Category <br/>
+                                    @blob.ImageType <br/>
+                                    @blob.Color
+                                    </h5>
+
+                                </div>*@
+                            </a>
+                        </div>
+                    }
+                    @*<a href="" rel="lightbox" title="@blob.Caption">
+            <img src="" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
+        </a>*@
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- //gallery -->
+    <!-- menu-js -->
+    <script>
+        $('.navicon').on('click', function (e) {
+            e.preventDefault();
+            $(this).toggleClass('navicon--active');
+            $('.toggle').toggleClass('toggle--active');
+        });
+    </script>
+    <!-- //menu-js -->
+    <!-- gallery-pop-up-script -->
+    <script src="~/Content/web/js/jquery.chocolat.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.view-seventh a').Chocolat();
+        });
+    </script>
+    <!-- //gallery-pop-up-script -->
+    <script src="~/Content/web/js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                items: 2,
+                lazyLoad: true,
+                autoPlay: false,
+                pagination: true,
+            });
+        });
+    </script>
+    <!-- //Owl-Carousel-JavaScript -->
+    <!-- jarallax -->
+    <script src="~/Content/web/js/SmoothScroll.min.js"></script>
+    <!-- //jarallax -->
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/Content/web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/web/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Content/web/js/bootstrap.js"></script>
+</body>
+</html>
+
+
+
+
+
